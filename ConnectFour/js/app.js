@@ -2,7 +2,9 @@
 const lookup = {
     playerB: 'blue',
 
-    playerY: 'yellow'
+    playerY: 'yellow',
+    
+    noPlayer: 'null'
 }
 
 /*----- app's state (variables) -----*/
@@ -15,8 +17,13 @@ const message = document.querySelector('h1');
 
 /*----- event listeners -----*/
 
-document.querySelector('div.slot').addEventListener('click', handleMove);
-document.querySelector('button').addEventListener('click', initialize);
+document.querySelector('div.slot').//addEventListener('click', handleMove);
+document.querySelector('button').//addEventListener('click', initialize);
+const idx= slotEls.indexOff(evt.target);
+if(idx === playerB) return;
+console.log(idx);
+board[idx] = playerB;
+render();
 
 /*----- functions -----*/
 
@@ -54,7 +61,13 @@ function render() {
         message.innerHTML = `${lookup[winner].toUpperCase()} wins!`;
 
     function initialize() {
+        board = new Array(42).fill(null);
     
         turn = playerBlue;
         render();
+    }
+    function renderBoard() {
+       board.forEach(function(slot, idx){
+            slotEls[idx].style.backgroundColor = lookup[slot];
+       }
     }

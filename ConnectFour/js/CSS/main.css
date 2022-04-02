@@ -1,0 +1,24 @@
+html, * {
+    font-family: helvetica;
+    box-sizing: border-box;
+  }
+
+/*body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }*/
+   .gameboard-container {
+    display: grid;
+    grid-template-columns: 20vmin;
+    grid-template-rows: repeat(6, 20vmin);
+    border: 2px solid black;
+   }
+    .slot {
+    margin: 2vmin;
+    border-radius: 50%;
+    border: 2px solid black;
+   }
+   

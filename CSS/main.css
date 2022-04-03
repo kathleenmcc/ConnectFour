@@ -3,12 +3,14 @@
     box-sizing: border-box;
   }
 
+
     body {
     display: flex;
     height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: steelblue;
    }
 
    .gameboard {
@@ -18,13 +20,14 @@
     border: 2px solid black;
     margin: 0 auto;
     justify-content: center;
-    background-color: rgb(49, 91, 146);
+    background-color: darkgray;
    }
     
    .slot {
     margin: 2vmin;
     border-radius: 50%;
     border: 2px solid black;
+    background-color: burlywood;
    }
 
    .playbtn {

@@ -1,10 +1,7 @@
 /*----- constants -----*/
 const lookup = {
-    playerB: 'blue',
-
-    playerY: 'yellow',
-    
-    noPlayer: 'null'
+    1: 'blue',
+    '-1': 'yellow'
 }
 
 /*----- app's state (variables) -----*/
@@ -12,62 +9,65 @@ let board, turn, winner;
 
 /*----- cached element references -----*/
 
-const slotEls = document.querySelectorAll('div.slot');
+const slotEls = [...document.querySelectorAll('.slot')];
 const message = document.querySelector('h1');
 
 /*----- event listeners -----*/
 
-document.querySelector('div.slot').//addEventListener('click', handleMove);
-document.querySelector('button').//addEventListener('click', initialize);
-const idx= slotEls.indexOff(evt.target);
-if(idx === playerB) return;
-console.log(idx);
-board[idx] = playerB;
-render();
+document.querySelector('.gameboard').addEventListener('click', handleMove);
+document.querySelector('button').addEventListener('click', initialize);
 
 /*----- functions -----*/
 
 initialize();
 
 function handleMove(evt) {
-
-const slotChoice = parseInt(evt.target.id.replace('choice', ''));
-
-//do I have to create a 'changeColor' 
-
-//I think 'slotChoice' will correspond with id number of each slot?
-//if all squares have been clicked && no winner?
-if(board (|| winner) return; 
-// update state (board, turn, winner)
-winner = getWinner(); 
-render();
-
-
-function getWinner() {
-    
+    const slotChoice = parseInt(evt.target.id) -1;
+    board[slotChoice] = turn;
+    winner = getWinner(); 
+    render();
+    turn = turn * -1;
 }
+function getWinner() {
+    let checkIdx = idx;
+    let row = 0;
+    while (gameboard[checkIdx] === turn) {
+        row++
+        checkIdx++;
+    }
+    checkIdx = idx -1;
+}
+while (gameboard[checkIdx] === turn) {
+    row++
+    checkIdx--;
+}
+if (row >= 4) {
+    result = turn;
+};
+
 
 function render() {
-    slots.forEach(function(el)
-            slotEls.forEach(el => el.style.backgroundColor = 'white';//or 'null'
+    slotEls.forEach(el => el.style.backgroundColor = 'burlywood');
+    renderBoard();
 
-    
-    //need 'if' statement to determine winner
-    if (/*(all slots 'true'? && winner !== )*/) {
+    if ( board.every((element) => {
+        element !== null;
+    })  && winner !== null ) {
 
-        message.innerHTML = 'No winner. It/s a draw';
-
+        message.innerHTML = 'No winner. It\'s a draw';
     } else if (winner) {
         message.innerHTML = `${lookup[winner].toUpperCase()} wins!`;
+    }
+}
+function initialize() {
+    board = new Array(42).fill(null);
+    turn = 1;
+    winner = null;
+    render();
+}
 
-    function initialize() {
-        board = new Array(42).fill(null);
-    
-        turn = playerBlue;
-        render();
-    }
-    function renderBoard() {
-       board.forEach(function(slot, idx){
-            slotEls[idx].style.backgroundColor = lookup[slot];
-       }
-    }
+function renderBoard() {
+    board.forEach(function(slot, idx) {
+        slotEls[idx].style.backgroundColor = lookup[slot];
+    });
+}

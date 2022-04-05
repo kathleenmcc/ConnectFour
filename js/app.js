@@ -10,7 +10,7 @@ let board, turn, winner;
 /*----- cached element references -----*/
 
 const slotEls = [...document.querySelectorAll('.slot')];
-const message = document.querySelector('h1');
+const msgEl = document.querySelector('h1');
 
 /*----- event listeners -----*/
 
@@ -24,27 +24,30 @@ initialize();
 function handleMove(evt) {
     const slotChoice = parseInt(evt.target.id) -1;
     board[slotChoice] = turn;
-    winner = getWinner(); 
+    getWinner(slotChoice, 1);
+    getWinner(slotChoice, 6);
+    getWinner(slotChoice, 5);
+    getWinner(slotChoice, 7);
     render();
     turn = turn * -1;
 }
 //below was changed 
-function winner(idx, inc) {
+function getWinner(idx, inc) {
     let checkIdx = idx;
     let theRow = 0;
-    while (gameBoard[checkIdx] === turn && checkIdx < gameBoard.length){
+    while (board[checkIdx] === turn && checkIdx < board.length){
         theRow++; 
         checkIdx = checkIdx + inc;
     }
     checkIdx = idx - 1;
 
-    while (gameBoard[checkIdx] === turn && checkIdx >= 0){
+    while (board[checkIdx] === turn && checkIdx >= 0){
         theRow++; 
         checkIdx = checkIdx - inc
 
     }
     if (theRow >= 4) {
-        result = turn;
+        winner = turn;
     }; 
 }
 
@@ -56,9 +59,9 @@ function render() {
         element !== null;
     })  && winner !== null ) {
 
-        message.innerHTML = 'No winner. It\'s a draw';
+        msgEl.innerHTML = 'No winner. It\'s a draw';
     } else if (winner) {
-        message.innerHTML = `${lookup[winner].toUpperCase()} wins!`;
+        msgEl.innerHTML = `${lookup[winner].toUpperCase()} wins!`;
     }
 }
 function initialize() {
@@ -75,15 +78,12 @@ function renderBoard() {
 }
   
   function render() {
-    circleEls.forEach(function(circleEl, idx) {
-      circleEl.style.backgroundColor = gameBoard[idx];
+    slotEls.forEach(function(slotEl, idx) {
+      slotEl.style.backgroundColor = lookup[board[idx]];
     });
-   if (result) {msgEl.innerText = `${result} WINS!`;}
+   if (winner) {msgEl.innerText = `${winner} WINS!`;}
    else {
        msgEl.innerText = '';
    }
   }
-   winner(idx, 1);
-    winner(idx, 6);
-    winner(idx, 5);
-    winner(idx, 7);
+   

@@ -1,8 +1,8 @@
 /*----- constants -----*/
 const lookup = {
     1: 'blue',
-    '-1': 'yellow'
-}
+    '-1': 'yellow',
+};
 
 /*----- app's state (variables) -----*/
 let board, turn, winner;
@@ -15,7 +15,7 @@ const msgEl = document.querySelector('h1');
 /*----- event listeners -----*/
 
 document.querySelector('.gameboard').addEventListener('click', handleMove);
-document.querySelector('button').addEventListener('click', initialize);
+document.querySelector('.playbtn').addEventListener('click', initialize);
 
 /*----- functions -----*/
 
@@ -31,7 +31,7 @@ function handleMove(evt) {
     render();
     turn = turn * -1;
 }
-//below was changed 
+//below was changed
 function getWinner(idx, inc) {
     let checkIdx = idx;
     let theRow = 0;
@@ -43,18 +43,16 @@ function getWinner(idx, inc) {
 
     while (board[checkIdx] === turn && checkIdx >= 0){
         theRow++; 
-        checkIdx = checkIdx - inc
-
+        checkIdx = checkIdx - inc;
     }
     if (theRow >= 4) {
         winner = turn;
-    }; 
+    }
 }
 
 function render() {
     slotEls.forEach(el => el.style.backgroundColor = 'burlywood');
     renderBoard();
-
     if ( board.every((element) => {
         element !== null;
     })  && winner !== null ) {
@@ -64,6 +62,7 @@ function render() {
         msgEl.innerHTML = `${lookup[winner].toUpperCase()} wins!`;
     }
 }
+
 function initialize() {
     board = new Array(42).fill(null);
     turn = 1;
@@ -78,12 +77,11 @@ function renderBoard() {
 }
   
   function render() {
-    slotEls.forEach(function(slotEl, idx) {
-      slotEl.style.backgroundColor = lookup[board[idx]];
+    slotEls.forEach(function(slot, idx) {
+      slot.style.backgroundColor = lookup[board[idx]];
     });
-   if (winner) {msgEl.innerText = `${winner} WINS!`;}
+   if (winner) {msgEl.innerText = `${winner} wins.`;}
    else {
        msgEl.innerText = '';
    }
   }
-   

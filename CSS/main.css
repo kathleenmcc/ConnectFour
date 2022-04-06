@@ -3,7 +3,6 @@
     box-sizing: border-box;
   }
 
-
     body {
     display: flex;
     height: 100vh;
@@ -13,6 +12,26 @@
     background-color: steelblue;
    }
 
+   #markers {
+    display: grid;
+    grid-template-columns: repeat(7, 10vmin);
+    gap: 2vmin;
+    margin-top: 2vmin;
+  }
+  
+  #markers > div {
+    height: 8vmin;
+    border-width: 8vmin;
+    border-style: solid;
+    border-color: lightgray transparent transparent;
+    transform: scale(0.4);
+  }
+
+  #markers > div:hover {
+    transform: scale(0.5);
+    transition: transform 150ms ease-in;
+    border-top-color: darkgray;
+  }
    .gameboard {
     display: grid;
     grid-template-columns: repeat(7, 10vmin);

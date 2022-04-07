@@ -1,48 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/main.css">
-    <title>ConnectFour</title>
-    <script defer src="js/app.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Four</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <script defer src="app.js"></script>
 </head>
+<h1>Connect Four</h1>
 <body>
-    <header class="header">Connect Four</header>
-    <h1 class="msgEl"></h1>
-    <section id="markers">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </section>
-    <div class="gameboard">
-        <div class="slot" id="1"></div><div class="slot" id="2"></div>
-        <div class="slot" id="3"></div><div class="slot" id="4"></div>
-        <div class="slot" id="5"></div><div class="slot" id="6"></div>
-        <div class="slot" id="7"></div><div class="slot" id="8"></div>
-        <div class="slot" id="9"></div><div class="slot" id="10"></div>
-        <div class="slot" id="11"></div><div class="slot" id="12"></div>
-        <div class="slot" id="13"></div><div class="slot" id="14"></div>
-        <div class="slot" id="15"></div><div class="slot" id="16"></div>
-        <div class="slot" id="17"></div><div class="slot" id="18"></div>
-        <div class="slot" id="19"></div><div class="slot" id="20"></div>
-        <div class="slot" id="21"></div><div class="slot" id="22"></div>
-        <div class="slot" id="23"></div><div class="slot" id="24"></div>
-        <div class="slot" id="25"></div><div class="slot" id="26"></div>
-        <div class="slot" id="27"></div><div class="slot" id="28"></div>
-        <div class="slot" id="29"></div><div class="slot" id="30"></div>
-        <div class="slot" id="31"></div><div class="slot" id="32"></div>
-        <div class="slot" id="33"></div><div class="slot" id="34"></div>
-        <div class="slot" id="35"></div><div class="slot" id="36"></div>
-        <div class="slot" id="37"></div><div class="slot" id="38"></div>
-        <div class="slot" id="39"></div><div class="slot" id="40"></div>
-        <div class="slot" id="41"></div><div class="slot" id="42"></div>
-    </div>
-    <button class="playbtn">Play again?</button>
+  <section id="markers">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <section id="board">  
+    
+    <div id="c0r6"></div>
+    <div id="c1r6"></div>
+    <div id="c2r6"></div>
+    <div id="c3r6"></div>
+    <div id="c4r6"></div>
+    <div id="c5r6"></div>
+    <div id="c6r6"></div>
+
+    <div id="c0r5"></div>
+    <div id="c1r5"></div>
+    <div id="c2r5"></div>
+    <div id="c3r5"></div>
+    <div id="c4r5"></div>
+    <div id="c5r5"></div>
+    <div id="c6r5"></div>
+
+    <div id="c0r4"></div>
+    <div id="c1r4"></div>
+    <div id="c2r4"></div>
+    <div id="c3r4"></div>
+    <div id="c4r4"></div>
+    <div id="c5r4"></div>
+    <div id="c6r4"></div>
+
+    <div id="c0r3"></div>
+    <div id="c1r3"></div>
+    <div id="c2r3"></div>
+    <div id="c3r3"></div>
+    <div id="c4r3"></div>
+    <div id="c5r3"></div>
+    <div id="c6r3"></div>
+
+    <div id="c0r2"></div>
+    <div id="c1r2"></div>
+    <div id="c2r2"></div>
+    <div id="c3r2"></div>
+    <div id="c4r2"></div>
+    <div id="c5r2"></div>
+    <div id="c6r2"></div>
+
+    <div id="c0r1"></div>
+    <div id="c1r1"></div>
+    <div id="c2r1"></div>
+    <div id="c3r1"></div>
+    <div id="c4r1"></div>
+    <div id="c5r1"></div>
+    <div id="c6r1"></div>
+
+    <div id="c0r0"></div>
+    <div id="c1r0"></div>
+    <div id="c2r0"></div>
+    <div id="c3r0"></div>
+    <div id="c4r0"></div>
+    <div id="c5r0"></div>
+    <div id="c6r0"></div>
+  </section>
+  <button class="playbtn">Play again?</button>
 </body>
 </html>

@@ -51,6 +51,7 @@ const COLORS = {
   }
   
   // Update all impacted state, then call render
+  //adding this statement to redeploy
   function handleDrop(evt) {
     const colIdx = markerEls.indexOf(evt.target);
     if (colIdx === -1) return;
@@ -61,7 +62,7 @@ const COLORS = {
     render();
   }
 
-  function checkWin() {
+ /* function checkWin() {
     for(let i=0; i< board.length - 4; i++) {
       for(let j=0; j < board[i].length - 4; j++) {
         if(board[i][j] === turn && board[i][j+1] === turn && board[i][j+2] && board[i][j+3]) {
@@ -75,4 +76,4 @@ const COLORS = {
       }
     }
   }
-};
+};*/
